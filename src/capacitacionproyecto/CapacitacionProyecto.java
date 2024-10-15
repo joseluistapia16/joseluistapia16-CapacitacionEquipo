@@ -11,7 +11,7 @@ import domain.Vehiculo;
 
 /**
  *
- * @author Usuario
+ * @author Jose Luis Tapia
  */
 public class CapacitacionProyecto {
 
