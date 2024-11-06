@@ -6,6 +6,7 @@ package capacitacionproyecto;
 
 import domain.Docente;
 import domain.Empleado;
+import domain.Pelicula;
 import domain.Persona;
 import domain.Vehiculo;
 
@@ -22,7 +23,8 @@ public class CapacitacionProyecto {
     static int u=0;
     static String direccion;
     public static void main(String[] args) {
-        Lombok();
+        prueba2();
+        //Lombok();
         //herencia();
         //instancias();
         //tipos();
@@ -41,6 +43,11 @@ public class CapacitacionProyecto {
 //        direccion = "Urdesa";
 //        System.out.println("Resultado:"+r);
 //        System.out.println(getSuma(10, 8));
+    }
+    
+    private static void prueba2(){
+        var obj = new Pelicula(1, "Jason X", 120.89, "Terror",2005);
+        System.out.println(obj.toString());
     }
     
     public static int getSuma(int x,int y){
