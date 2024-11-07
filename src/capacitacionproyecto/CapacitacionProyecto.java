@@ -4,6 +4,7 @@
  */
 package capacitacionproyecto;
 
+import domain.Carro;
 import domain.Docente;
 import domain.Empleado;
 import domain.Pelicula;
@@ -15,15 +16,12 @@ import domain.Vehiculo;
  * @author Jose Luis Tapia
  */
 public class CapacitacionProyecto {
-
-    /* *
-     * Inicio de capacitacion: 4 Octubre 2024
-    cambio 1
-     */
+/* Cambio 6 de Noviembre 2024*/
     static int u=0;
     static String direccion;
     public static void main(String[] args) {
-        prueba2();
+        carro();
+        Versionew();
         //Lombok();
         //herencia();
         //instancias();
@@ -44,6 +42,26 @@ public class CapacitacionProyecto {
 //        System.out.println("Resultado:"+r);
 //        System.out.println(getSuma(10, 8));
     }
+    private static void carro(){
+    var obj=new Carro( 4,"Gris",20,5,"Audi");
+        System.out.println(obj.toString());
+    }
+      private static void Versionew(){
+      Carro vob = new Carro();
+      vob.setLlantas(4);
+      vob.setColor("Blanco");
+      vob.setPernos(500);
+      vob.setAsientos(5);
+      vob.setMarca("Audi");
+      System.out.println(vob.toString());
+      }
+    
+    
+    
+    
+    
+    
+    
     
     private static void prueba2(){
         var obj = new Pelicula(1, "Jason X", 120.89, "Terror",2005);
@@ -100,6 +118,7 @@ public class CapacitacionProyecto {
 //       System.out.println(obP2.toString());
    }
   
+  
   private static void herencia(){
 //      Persona obj = new Persona("0333773", "Jose Lopez", 56);
 //      System.out.println(obj.toString());
@@ -111,7 +130,7 @@ public class CapacitacionProyecto {
       System.out.println(obj2.toString());
       obj2.ejemplo();
   }
-  
+ 
   private static void Lombok(){
       Vehiculo vob = new Vehiculo();
       vob.setMatricula("GHJ0987");
@@ -124,9 +143,7 @@ public class CapacitacionProyecto {
       System.out.println(obj.toString());
       // Lombok
   }
-    
 }
-
 class Prueba{
    public static int x=60;
    public static void metodo(){
