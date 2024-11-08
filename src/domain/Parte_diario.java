@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package domain;
+import java.time.LocalTime;
+import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,8 +15,18 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 
-public class Victor {
-    private int cedula ;
-    int edad;
-    String nombre;
+public class Parte_diario {
+    int id_partediario;
+    Date fecha_registro;
+    LocalTime hora_entrada;
+    String id_persona;//cedula from persona
+    String diagnostico;
+    String tratamiento;
+    String observacion;
+    String permisos;
+    LocalTime hora_salida;
+    String usuario;
+    String estado;
+    
+    
 }
