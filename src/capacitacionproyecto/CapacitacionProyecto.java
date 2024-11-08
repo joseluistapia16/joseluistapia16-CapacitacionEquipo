@@ -57,15 +57,7 @@ public class CapacitacionProyecto {
       System.out.println(vob.toString());
       }
       
-      private static void Laura(){
-          var obj=new estudiante();
-      }
-    
-    
-    
-    
-    
-    
+ 
     
     
     private static void prueba2(){
