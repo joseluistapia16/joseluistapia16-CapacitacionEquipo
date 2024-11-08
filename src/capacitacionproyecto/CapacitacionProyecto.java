@@ -10,6 +10,7 @@ import domain.Empleado;
 import domain.Pelicula;
 import domain.Persona;
 import domain.Vehiculo;
+import domain.estudiante;
 
 /**
  *
@@ -54,6 +55,10 @@ public class CapacitacionProyecto {
       vob.setAsientos(5);
       vob.setMarca("Audi");
       System.out.println(vob.toString());
+      }
+      
+      private static void Laura(){
+          var obj=new estudiante();
       }
     
     
