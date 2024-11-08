@@ -4,13 +4,22 @@
  */
 package domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 /**
  *
  * @author user
  */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class estudiante {
     private String nombre;
     private int edad;
     private String apellido;
-    //cambio laurahj
+    //cambio laura
 }
