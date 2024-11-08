@@ -10,6 +10,7 @@ import domain.Empleado;
 import domain.Pelicula;
 import domain.Persona;
 import domain.Vehiculo;
+import domain.estudiante;
 
 /**
  *
@@ -55,12 +56,8 @@ public class CapacitacionProyecto {
       vob.setMarca("Audi");
       System.out.println(vob.toString());
       }
-    
-    
-    
-    
-    
-    
+      
+ 
     
     
     private static void prueba2(){
