@@ -5,6 +5,7 @@
 package dao;
 
 import domain.Area;
+import impl.AreaDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,21 +15,47 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class CrudArea {
-
+public class CrudArea implements AreaDAO {
+    private String base = "desarrollo";
     private Conexion conexion;
 
     public CrudArea() {
         this.conexion = new Conexion();
     }
 
-    public List<Area> getAll(String base, String query) {
-        List<Area> datos = new ArrayList<>();
+ 
 
-        try (   
-                Connection conect = conexion.conectar(base); 
-                PreparedStatement st = conect.prepareStatement(query); 
-                ResultSet rs = st.executeQuery()) {
+    @Override
+    public void save(Area obj) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void update(Area obj) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void delete(Integer idArea) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Area getOne(Integer idArea) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Integer getId(String name) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public List<Area> getAll() {
+        List<Area> datos = new ArrayList<>();
+        var query = "select * from area where estado='A'";
+        try (
+                Connection conect = this.conexion.conectar(base); PreparedStatement st = conect.prepareStatement(query); ResultSet rs = st.executeQuery()) {
 
             while (rs.next()) {
                 Area area = new Area(rs.getInt("id_area"), rs.getString("nombre_area"),

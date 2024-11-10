@@ -73,10 +73,10 @@ public class CapacitacionProyecto {
     }
 
     private static void basedatos() {
-        
+
         List<Area> lista = new ArrayList<>();
         CrudArea crud = new CrudArea();
-        lista = crud.getAll("desarrollo", "select * from area");
+        lista = crud.getAll();
         for (int i = 0; i < lista.size(); i++) {
             System.out.println(lista.get(i).toString());
         }
