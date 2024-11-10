@@ -4,6 +4,9 @@
  */
 package capacitacionproyecto;
 
+import dao.Conexion;
+import dao.CrudArea;
+import domain.Area;
 import domain.Carro;
 import domain.Docente;
 import domain.Empleado;
@@ -14,6 +17,8 @@ import domain.estudiante;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -27,27 +32,8 @@ public class CapacitacionProyecto {
     static int u = 0;
     static String direccion;
 
-
-    public static Connection Conexion(String base) {
-        Connection Conect = null;
-        try {
-            try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                String str = "jdbc:mysql://localhost:3306/" + base;
-                Conect = DriverManager.getConnection(str, "root", "1234");
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(CapacitacionProyecto.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(CapacitacionProyecto.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return Conect;
-
-    }
-
     public static void main(String[] args) {
-        var con = Conexion("fichas_medicas_personal");
-        System.out.println(con);
+        basedatos();
 //        carro();
 //        Versionew();
         //Lombok();
@@ -84,6 +70,17 @@ public class CapacitacionProyecto {
         vob.setAsientos(5);
         vob.setMarca("Audi");
         System.out.println(vob.toString());
+    }
+
+    private static void basedatos() {
+        
+        List<Area> lista = new ArrayList<>();
+        CrudArea crud = new CrudArea();
+        lista = crud.getAll("desarrollo", "select * from area");
+        for (int i = 0; i < lista.size(); i++) {
+            System.out.println(lista.get(i).toString());
+        }
+
     }
 
     private static void prueba2() {
