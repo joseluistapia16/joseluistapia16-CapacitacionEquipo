@@ -4,57 +4,25 @@
  */
 package domain;
 
-/**
- *
- * Cambio 2
- * 2024
- */
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-abstract public class Persona {
-    public String cadena;
+@Data
+@NoArgsConstructor
+@ToString
+@AllArgsConstructor
+public class Persona {
     private String cedula;
     private String nombre;
-    private int edad;
-    
-    public Persona(String cedula, String nombre, int edad){
-        this.cedula= cedula;
-        this.nombre = nombre;
-        this.edad = edad;
-    }
-    
-    public Persona (String cedula, String nombre){
-        this.cedula = cedula;
-        this.nombre = nombre;
-    }
-    
-    public Persona(){
-        
-    }
-    
-    public void setCedula(String cedula){
-        this.cedula = cedula;
-    }   
-    public void setNombre(String nombre){
-        this.nombre = nombre;
-    }
-    public void setEdad(int edad){
-        this.edad = edad;
-    }
-    public String getCedula(){
-        return this.cedula;
-    }
-    
-    public String getNombre(){
-        return this.nombre;
-    }
-    public int getEdad(){
-        return edad;
-    }
-
-    @Override
-    public String toString() {
-        return getCedula()+" "+getNombre()+" "+getEdad(); 
-    }
-    
-    abstract public void ejemplo();
+    private String apellidos;
+    private String fecha_nacimiento;
+    private Integer  n_hijos;
+    private String direccion;
+    private String id_mail;
+    private String telefono; 
+    private String id_grupo_sanguineo;
+    private String id_area;
+    private String estado;
 }
