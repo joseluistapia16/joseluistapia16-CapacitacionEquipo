@@ -8,7 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-
+import java.sql.Date;
 @Data
 @NoArgsConstructor
 @ToString
@@ -17,12 +17,12 @@ public class Persona {
     private String cedula;
     private String nombre;
     private String apellidos;
-    private String fecha_nacimiento;
+    private Date fecha_nacimiento;
     private Integer  n_hijos;
     private String direccion;
-    private String id_mail;
+    private Integer id_mail;
     private String telefono; 
-    private String id_grupo_sanguineo;
-    private String id_area;
+    private Integer id_grupo_sanguineo;
+    private Integer id_area;
     private String estado;
 }
