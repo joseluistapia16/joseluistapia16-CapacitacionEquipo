@@ -164,6 +164,12 @@ public class CapacitacionProyecto {
         System.out.println(obj.toString());
         // Lombok
     }
+    private static void Persona(){
+        Persona vob= new Persona();
+        vob.setCedula("0959449059");
+        vob.setNombre("Jose Luis ");
+        
+    }
 }
 
 class Prueba {
