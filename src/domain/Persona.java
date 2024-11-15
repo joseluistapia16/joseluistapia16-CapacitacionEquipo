@@ -4,57 +4,41 @@
  */
 package domain;
 
+
+import java.util.Date;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 /**
  *
- * Cambio 2
- * 2024
+ * @author USUARIO
  */
+@Data
+@NoArgsConstructor
+@ToString
+@AllArgsConstructor
 
-abstract public class Persona {
-    public String cadena;
-    private String cedula;
-    private String nombre;
-    private int edad;
+public class Persona {
     
-    public Persona(String cedula, String nombre, int edad){
-        this.cedula= cedula;
-        this.nombre = nombre;
-        this.edad = edad;
-    }
+    private int cedula;
+    private String nombres;
+    private String apellidos;
+    private Date fecha_nacimiento;
+    private int n_hijos;
+    private String direccion;
+    private String id_mail;
     
-    public Persona (String cedula, String nombre){
+    public Persona(int cedula, String nombres, String apellidos, Date fecha_nacimiento, int n_hijos, String direccion, String id_mail) {
         this.cedula = cedula;
+        this.nombres = nombres;
         this.nombre = nombre;
+        this.apellido = apellido;
+        this.correo = correo;
+        this.id_rol = id_rol;
+        this.estado = estado;
     }
-    
-    public Persona(){
-        
-    }
-    
-    public void setCedula(String cedula){
-        this.cedula = cedula;
-    }   
-    public void setNombre(String nombre){
-        this.nombre = nombre;
-    }
-    public void setEdad(int edad){
-        this.edad = edad;
-    }
-    public String getCedula(){
-        return this.cedula;
-    }
-    
-    public String getNombre(){
-        return this.nombre;
-    }
-    public int getEdad(){
-        return edad;
-    }
-
-    @Override
-    public String toString() {
-        return getCedula()+" "+getNombre()+" "+getEdad(); 
-    }
-    
-    abstract public void ejemplo();
 }
+    
+
