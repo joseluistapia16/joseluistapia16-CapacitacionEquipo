@@ -4,6 +4,7 @@
  */
 package domain;
 
+import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,14 +21,14 @@ import lombok.ToString;
 
 public class FichaMedica {
     private int id_fichaMedica;
-    private int fecha_registro;
-    private Integer id_persona;
+    private Date fecha_registro;
+    private String id_persona;
     private String ant_patologicos_per;
     private String ant_patologicos_fam;
     private String habito;
     private String estado_actual;
     private String examen_fisico;
-    private String examen_comple;
+    private String examen_complementario;
     private String firma;
     private String foto;
     private Integer id_usuario;
