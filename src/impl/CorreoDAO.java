@@ -4,24 +4,25 @@
  */
 package impl;
 
-
-import domain.EstadoCivil;
+import domain.Correo;
 import java.util.List;
 
 /**
+ * Robert López 11:39 15/11/2024
  *
- * @author user
+ * @author USUARIO
  */
-public interface EstadoCivilDAO {
- void save(EstadoCivil obj);
+public interface CorreoDAO {
 
-    void update(EstadoCivil obj);
+    boolean save(Correo obj);
 
-    void delete(Integer idEstadoCivil);
+    boolean update(Correo obj);
 
-    EstadoCivil getOne(Integer idEstadoCivil);
-    
+    boolean delete(Integer id_correo);
+
+    Correo getOne(Integer id_correo);
+
     Integer getId(String name);
 
-    List<EstadoCivil> getAll();
+    List<Correo> getAll();
 }

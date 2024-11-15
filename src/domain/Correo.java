@@ -11,27 +11,25 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
+/**
+ *
+ * @author USUARIO
+ */
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @ToString
 @RequiredArgsConstructor
+@AllArgsConstructor
+public class Correo {
 
-/** Pablo Garcia 12/11/2024 12:06
- *
- * @author userasdasdasd
- */
-public class Roles {
-
-    private Integer id_rol;
+    private Integer id_correo;
     @NonNull
-    private String nombre;
+    private String correo;
     @NonNull
-    private String id_usuario;
+    private Integer id_persona;
+    @NonNull
+    private Integer id_usuario;
     @NonNull
     private String estado;
-  
-   
-    }
-    
-    
+
+}
