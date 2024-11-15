@@ -27,7 +27,7 @@ public class Roles {
     @NonNull
     private String nombre;
     @NonNull
-    private String id_usuario;
+    private Integer id_usuario;
     @NonNull
     private String estado;
   
