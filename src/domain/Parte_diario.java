@@ -3,30 +3,43 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package domain;
+
 import java.sql.Date;
 import java.sql.Time;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-
+@RequiredArgsConstructor
 public class Parte_diario {
-    int id_partediario;
-    Date fecha_registro;
-    Time hora_entrada;
-    String id_persona;//cedula from persona
-    String diagnostico;
-    String tratamiento;
-    String observacion;
-    String permisos;
-    Time hora_salida;
-    String usuario;
-    String estado;
-    
-    
+
+    private Integer id_partediario;
+    @NonNull
+    private Date fecha_registro;
+    @NonNull
+    private Time hora_entrada;
+    @NonNull
+    private String id_persona;//cedula from persona
+    @NonNull
+    private String diagnostico;
+    @NonNull
+    private String tratamiento;
+    @NonNull
+    private String observacion;
+    @NonNull
+    private String permisos;
+    @NonNull
+    private Time hora_salida;
+    @NonNull
+    private String usuario;
+    @NonNull
+    private String estado;
+
 }
