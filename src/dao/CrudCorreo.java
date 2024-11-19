@@ -79,12 +79,45 @@ public class CrudCorreo implements CorreoDAO{
 
     @Override
     public Correo getOne(Integer id_correo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Correo correo = null;
+        var query = "SELECT * FROM correo WHERE id_correo = ? AND estado = 'A'";
+        try (
+                Connection conect = this.conexion.conectar(base);
+                PreparedStatement st = conect.prepareStatement(query)) {
+            st.setInt(1, id_correo);                      // Asigna el id_correo Robert
+            try (ResultSet rs = st.executeQuery()) {
+                if (rs.next()) {                       // Si se encuentra un resultado
+                    correo = new Correo(
+                            rs.getInt("id_correo"),
+                            rs.getString("correo"),
+                            rs.getString("id_persona"),
+                            rs.getInt("id_usuario"),
+                            rs.getString("estado")
+                    );
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CrudCorreo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return correo;
+    
     }
 
     @Override
     public Integer getId(String name) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        var query = "SELECT id_correo FROM correo WHERE id_persona = ? AND estado = 'A'";
+        try (
+                Connection conect = this.conexion.conectar(base); PreparedStatement st = conect.prepareStatement(query)) {
+            st.setString(1, name);                     // Asigna el nombre del correo a buscar
+            ResultSet rs = st.executeQuery();          // Ejecuta la consulta
+            if (rs.next()) {                           // Verifica si hay resultados
+                return rs.getInt("id_correo");           // Retorna el id_rol encontrado
+            }
+        } catch (SQLException ex) {
+                Logger.getLogger(CrudCorreo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+        
     }
 
     @Override
