@@ -39,7 +39,7 @@ public class CrudCorreo implements CorreoDAO{
             int rowsAffected = st.executeUpdate();     // Ejecuta la inserción
             return rowsAffected > 0;                   // Retorna true si se insertaron filas
         } catch (SQLException ex) {
-            Logger.getLogger(CrudRoles.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CrudCorreo.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
         
@@ -54,7 +54,7 @@ public class CrudCorreo implements CorreoDAO{
             int rowsAffected = st.executeUpdate();     // Ejecuta la actualización
             return rowsAffected > 0;                   // Retorna true si se actualizaron filas
         } catch (SQLException ex) {
-            Logger.getLogger(CrudRoles.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CrudCorreo.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
        
@@ -67,11 +67,11 @@ public class CrudCorreo implements CorreoDAO{
                 Connection conect = this.conexion.conectar(base); PreparedStatement st = conect.prepareStatement(query)) {
             st.setString(1, "I");          // Asigna el estado ('A' o 'I')
             st.setInt(2, id_correo);
-            // Asigna el ID del rol para actualizar
+            // Asigna el ID del correo para actualizar
             int rowsAffected = st.executeUpdate();     // Ejecuta la actualización
             return rowsAffected > 0;                   // Retorna true si se actualizaron filas
         } catch (SQLException ex) {
-            Logger.getLogger(CrudRoles.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CrudCorreo.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
         
