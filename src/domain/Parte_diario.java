@@ -3,8 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package domain;
-import java.time.LocalTime;
-import java.util.Date;
+import java.sql.Date;
+import java.sql.Time;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,13 +18,13 @@ import lombok.ToString;
 public class Parte_diario {
     int id_partediario;
     Date fecha_registro;
-    LocalTime hora_entrada;
+    Time hora_entrada;
     String id_persona;//cedula from persona
     String diagnostico;
     String tratamiento;
     String observacion;
     String permisos;
-    LocalTime hora_salida;
+    Time hora_salida;
     String usuario;
     String estado;
     
