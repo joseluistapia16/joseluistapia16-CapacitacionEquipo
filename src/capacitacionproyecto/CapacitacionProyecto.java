@@ -8,8 +8,7 @@ import dao.Conexion;
 import dao.CrudArea;
 import domain.Area;
 import domain.Carro;
-import domain.Docente;
-import domain.Empleado;
+
 import domain.Pelicula;
 import domain.Persona;
 import domain.Vehiculo;
@@ -141,15 +140,15 @@ public class CapacitacionProyecto {
     }
 
     private static void herencia() {
-//      Persona obj = new Persona("0333773", "Jose Lopez", 56);
-//      System.out.println(obj.toString());
-        Empleado obj1 = new Empleado("037252", "Carlos Perez", 67, 1200.0, "Sistemas");
-        System.out.println(obj1.toString());
-        obj1.ejemplo();
-        Docente obj2 = new Docente("072726", "Miriam Gonzalez", 45,
-                "Informatica", "Robotica");
-        System.out.println(obj2.toString());
-        obj2.ejemplo();
+////      Persona obj = new Persona("0333773", "Jose Lopez", 56);
+////      System.out.println(obj.toString());
+//        Empleado obj1 = new Empleado("037252", "Carlos Perez", 67, 1200.0, "Sistemas");
+//        System.out.println(obj1.toString());
+//        obj1.ejemplo();
+//        Docente obj2 = new Docente("072726", "Miriam Gonzalez", 45,
+//                "Informatica", "Robotica");
+//        System.out.println(obj2.toString());
+//        obj2.ejemplo();
     }
 
     private static void Lombok() {
