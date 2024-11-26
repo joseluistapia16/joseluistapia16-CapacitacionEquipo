@@ -4,6 +4,8 @@
  */
 package capacitacion.views;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author user
@@ -42,6 +44,11 @@ public class MenuCapacitacion extends javax.swing.JFrame {
         jMenu3.setText("Usuarios");
 
         jMenuItem1.setText("Gestion de usuarios");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem1);
 
         jMenu1.add(jMenu3);
@@ -79,6 +86,11 @@ public class MenuCapacitacion extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        var gu=new GestionUsuarios(new JFrame(), true);
+        gu.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
