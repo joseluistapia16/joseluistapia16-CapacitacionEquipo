@@ -4,7 +4,6 @@
  */
 package dao;
 
-
 import domain.Usuario;
 import impl.UsuarioDAO;
 import java.sql.ResultSet;
@@ -18,8 +17,8 @@ import java.util.ArrayList;
 
 /**
  *
- * @author user Laura Pulido 11-11-2024 Hora:17:36pm
- * Actualizacion Jose Luis Tapia  12/11/2024   hora: 13:40pm
+ * @author user Laura Pulido 11-11-2024 Hora:17:36pm Actualizacion Jose Luis
+ * Tapia 12/11/2024 hora: 13:40pm
  */
 public class CrudUsuario implements UsuarioDAO {
 
@@ -29,7 +28,6 @@ public class CrudUsuario implements UsuarioDAO {
     public CrudUsuario() {
         this.conexion = new Conexion();
     }
-
 
 //    @Override
 //    public boolean update(Usuario obj) {
@@ -164,30 +162,29 @@ public class CrudUsuario implements UsuarioDAO {
 //        return obj;
 //
 //    }
-
     @Override
     public String save(Usuario obj) {
-        String msg=null;
+        String msg = null;
         var sql = "INSERT INTO usuario(username, password, nombre, apellido, correo, id_rol, id_usuario_registro, estado)"
                 + "values(?,?,?,?,?,?,?,?)";
         try (
                 java.sql.Connection conect = this.conexion.conectar(base); PreparedStatement st = conect.prepareStatement(sql)) {
-            st.setString(1, obj.getUsuario());     
-            st.setString(2, obj.getPassword());        
+            st.setString(1, obj.getUsuario());
+            st.setString(2, obj.getPassword());
             st.setString(3, obj.getNombre());
             st.setString(4, obj.getApellido());
             st.setString(5, obj.getCorreo());
             st.setInt(6, obj.getId_rol());
-           // System.out.println(obj.toString());
+            // System.out.println(obj.toString());
             st.setInt(7, obj.getId_usuario_registro());
             st.setString(8, obj.getEstado());
-            st.executeUpdate();   
-            msg= "Datos guardados..."   ;           
+            st.executeUpdate();
+            msg = "Datos guardados...";
         } catch (SQLException ex) {
-            msg = "error"+ex;
-           // Logger.getLogger(CrudArea.class.getName()).log(Level.SEVERE, null, ex);
-       }
-       return msg; 
+            msg = "" + ex;
+            // Logger.getLogger(CrudArea.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return msg;
     }
 
     @Override
@@ -217,7 +214,31 @@ public class CrudUsuario implements UsuarioDAO {
 
     @Override
     public Usuario getLoging(String usuario, String password) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Usuario obj = null;
+        var query = "SELECT * FROM usuario WHERE username = ? AND password= ? AND estado = 'A'";
+        try (
+                java.sql.Connection conect = this.conexion.conectar(base); 
+                PreparedStatement st = conect.prepareStatement(query)) {
+            st.setString(1, usuario);
+            st.setString(2, password);
+            try (ResultSet rs = st.executeQuery()) {
+                if (rs.next()) {
+                    obj = new Usuario(
+                            rs.getString("username"),
+                            rs.getString("password"),
+                            rs.getString("nombre"),
+                            rs.getString("apellido"),
+                            rs.getString("correo"),
+                            rs.getInt("id_rol"),
+                            rs.getInt("id_usuario_registro"),
+                            rs.getString("estado")
+                    );
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CrudArea.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return obj;
     }
 
 }

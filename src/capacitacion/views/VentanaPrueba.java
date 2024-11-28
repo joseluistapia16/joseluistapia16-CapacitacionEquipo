@@ -4,6 +4,7 @@
  */
 package capacitacion.views;
 
+import dao.CrudUsuario;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -13,11 +14,14 @@ import javax.swing.JOptionPane;
  */
 public class VentanaPrueba extends JFrame {
 
+    CrudUsuario crud = null;
+
     /**
      * Creates new form NewJFrame
      */
     public VentanaPrueba() {
         initComponents(); //es un metodo que ya no genera swing
+        crud = new CrudUsuario();
         setLocationRelativeTo(null); //para que al ejecutar aparezaca en el centro
     }
 
@@ -126,25 +130,25 @@ public class VentanaPrueba extends JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         validar();
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         var nr = new Registro(new JFrame(), true);
         nr.setVisible(true);
-        
+
     }//GEN-LAST:event_jToggleButton1ActionPerformed
-private void validar(){
-    if ("practica24".equals(usuario.getText()) && "1234".equals(password.getText())){
-        JOptionPane.showMessageDialog(null,"Bienvenido equipo");
-        setVisible(false);
-        var mn = new MenuCapacitacion();
-        mn.setVisible(true);
+    private void validar() {
+        var obj = crud.getLoging(usuario.getText(), password.getText());
+        if (obj == null) {
+            JOptionPane.showMessageDialog(null, "Usuario o contraseña son incorrectas");
+        } else {
+            setVisible(false);
+            var mn = new MenuCapacitacion(obj);
+            mn.setVisible(true);
+        }
     }
-    else{
-        JOptionPane.showMessageDialog(null,"Usuario o contraseña son incorrectas");
-    }
-}
+
     /**
      * @param args the command line arguments
      */

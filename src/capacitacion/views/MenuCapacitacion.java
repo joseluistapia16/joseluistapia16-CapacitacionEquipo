@@ -4,6 +4,7 @@
  */
 package capacitacion.views;
 
+import domain.Usuario;
 import javax.swing.JFrame;
 
 /**
@@ -18,6 +19,13 @@ public class MenuCapacitacion extends javax.swing.JFrame {
     public MenuCapacitacion() {
         initComponents();
         setLocationRelativeTo(null);
+    }
+
+    public MenuCapacitacion(Usuario obj) {
+        initComponents();
+        setLocationRelativeTo(null);
+        setTitle("Usuario: " + obj.getNombre() + " " + obj.getApellido() + ".");
+
     }
 
     /**
@@ -88,7 +96,7 @@ public class MenuCapacitacion extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        var gu=new GestionUsuarios(new JFrame(), true);
+        var gu = new GestionUsuarios(new JFrame(), true);
         gu.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
