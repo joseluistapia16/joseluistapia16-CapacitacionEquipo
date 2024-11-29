@@ -200,7 +200,7 @@ public class Registro extends javax.swing.JDialog {
         grabar();
     }//GEN-LAST:event_jButton2ActionPerformed
 private void grabar(){
-    var obj= new Usuario(usuario.getText(), password.getText(), nombre.getText(), apellido.getText(), correo.getText(),1, 2, "A");
+    var obj= new Usuario(usuario.getText(), password.getText(), nombre.getText(), apellido.getText(), correo.getText(),1, "trye56", "A");
     var msg=crud.save(obj);
     JOptionPane.showMessageDialog(null,msg);
 }

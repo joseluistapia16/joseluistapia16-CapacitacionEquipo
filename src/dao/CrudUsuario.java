@@ -29,139 +29,6 @@ public class CrudUsuario implements UsuarioDAO {
         this.conexion = new Conexion();
     }
 
-//    @Override
-//    public boolean update(Usuario obj) {
-//        var query = "UPDATE usuario SET password = ?, nombre = ?, apellido =?, correo  =?, id_rol = ? WHERE id_usuario = ?";
-//        try (
-//                java.sql.Connection conect = this.conexion.conectar(base); PreparedStatement st = conect.prepareStatement(query)) {
-//            st.setString(1, obj.getPassword());    
-//            st.setString(2, obj.getNombre());        
-//            st.setString(3, obj.getApellido());       
-//            st.setString(4, obj.getCorreo());
-//            st.setInt(5, obj.getId_rol());          
-//            int rowsAffected = st.executeUpdate();  
-//            return rowsAffected > 0;                   
-//        } catch (SQLException ex) {
-//            Logger.getLogger(CrudArea.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        return false;
-//    }
-//
-//    @Override
-//    public boolean delete(String usuario) {
-//        var query = "UPDATE usuario SET  estado = ? WHERE username = ?";
-//        try (
-//                java.sql.Connection conect = this.conexion.conectar(base); PreparedStatement st = conect.prepareStatement(query)) {
-//            st.setString(1, "I");          // Asigna el estado ('A' o 'I')
-//            st.setString(2, usuario);
-//            // Asigna el ID del área para actualizar
-//            int rowsAffected = st.executeUpdate();     // Ejecuta la actualización
-//            return rowsAffected > 0;                   // Retorna true si se actualizaron filas
-//        } catch (SQLException ex) {
-//            Logger.getLogger(CrudArea.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        return false;
-//    }
-//
-//    @Override
-//    public Usuario getOne(String usuario) {
-//        Usuario obj = null;
-//        var query = "SELECT * FROM usuario WHERE username = ? AND estado = 'A'";
-//        try (
-//                java.sql.Connection conect = this.conexion.conectar(base); PreparedStatement st = conect.prepareStatement(query)) {
-//            st.setString(1, usuario);                     
-//            try (ResultSet rs = st.executeQuery()) {
-//                if (rs.next()) {                      
-//                    obj = new Usuario(
-//                            rs.getInt("id_usuario"),
-//                            rs.getString("username"),
-//                            rs.getString("password"),
-//                            rs.getString("nombre"),
-//                            rs.getString("apellido"),
-//                            rs.getString("correo"),
-//                            rs.getInt("id_rol"),
-//                            rs.getInt("id_usuario_regtistro"),
-//                            rs.getString("estado")
-//                    );
-//                }
-//            }
-//        } catch (SQLException ex) {
-//            Logger.getLogger(CrudArea.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        return obj;
-//    }
-//
-//    @Override
-//    public Integer getId(String usuario) {
-//        var query = "SELECT id_usuario FROM usuario WHERE username = ? AND estado = 'A'";
-//        try (
-//                Connection conect = this.conexion.conectar(base); PreparedStatement st = conect.prepareStatement(query)) {
-//            st.setString(1, usuario);                    
-//            ResultSet rs = st.executeQuery();         
-//            if (rs.next()) {                          
-//                return rs.getInt("id_usuario");           
-//            }
-//        } catch (SQLException ex) {
-//            Logger.getLogger(CrudArea.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        return null;
-//    }
-//
-//    @Override
-//    public List<Usuario> getAll() {
-//        List<Usuario> datos = new ArrayList<>();
-//        var query = "select * from usuario where estado='A'";
-//        try (
-//                Connection conect = this.conexion.conectar(base); PreparedStatement st = conect.prepareStatement(query); ResultSet rs = st.executeQuery()) {
-//            while (rs.next()) {
-//                var obj = new Usuario(
-//                        rs.getInt("id_usuario"),
-//                        rs.getString("username"),
-//                        rs.getString("password"),
-//                        rs.getString("nombre"),
-//                        rs.getString("apellido"),
-//                        rs.getString("correo"),
-//                        rs.getInt("id_rol"),
-//                        rs.getInt("id_usuario_regtistro"),
-//                        rs.getString("estado")
-//                );
-//                datos.add(obj);
-//            }
-//        } catch (SQLException ex) {
-//            Logger.getLogger(CrudArea.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//
-//        return datos;
-//    }
-//
-//    @Override
-//    public Usuario getLoging(String usuario, String password) {
-//        Usuario obj = null;
-//        var query = "SELECT * FROM usuario WHERE username = ? AND password= ? AND estado = 'A'";
-//        try (
-//                java.sql.Connection conect = this.conexion.conectar(base); PreparedStatement st = conect.prepareStatement(query)) {
-//            st.setString(1, usuario);
-//            try (ResultSet rs = st.executeQuery()) {
-//                if (rs.next()) {                      
-//                    obj = new Usuario(
-//                            rs.getInt("id_usuario"),
-//                            rs.getString("username"),
-//                            rs.getString("password"),
-//                            rs.getString("nombre"),
-//                            rs.getString("apellido"),
-//                            rs.getString("correo"),
-//                            rs.getInt("id_rol"),
-//                            rs.getInt("id_usuario_regtistro"),
-//                            rs.getString("estado")
-//                    );
-//                }
-//            }
-//        } catch (SQLException ex) {
-//            Logger.getLogger(CrudArea.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        return obj;
-//
-//    }
     @Override
     public String save(Usuario obj) {
         String msg = null;
@@ -175,8 +42,7 @@ public class CrudUsuario implements UsuarioDAO {
             st.setString(4, obj.getApellido());
             st.setString(5, obj.getCorreo());
             st.setInt(6, obj.getId_rol());
-            // System.out.println(obj.toString());
-            st.setInt(7, obj.getId_usuario_registro());
+            st.setString(7, obj.getId_usuario_registro());
             st.setString(8, obj.getEstado());
             st.executeUpdate();
             msg = "Datos guardados...";
@@ -189,17 +55,69 @@ public class CrudUsuario implements UsuarioDAO {
 
     @Override
     public String update(Usuario obj) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String msg = null;
+        var query = "UPDATE usuario SET password = ?, nombre = ?, apellido =?, correo  =?, id_rol = ? WHERE username = ?";
+        try (
+                java.sql.Connection conect = this.conexion.conectar(base); PreparedStatement st = conect.prepareStatement(query)) {
+            st.setString(1, obj.getPassword());
+            st.setString(2, obj.getNombre());
+            st.setString(3, obj.getApellido());
+            st.setString(4, obj.getCorreo());
+            st.setInt(5, obj.getId_rol());
+            st.setString(6, obj.getUsuario());
+            st.executeUpdate();
+            msg = "Datos guardados...";
+        } catch (SQLException ex) {
+            msg = "" + ex;
+            Logger.getLogger(CrudArea.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return msg;
     }
 
     @Override
     public String delete(String usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String msg = null;
+        var query = "UPDATE usuario SET  estado = ? WHERE username = ?";
+        try (
+                java.sql.Connection conect = this.conexion.conectar(base); PreparedStatement st = conect.prepareStatement(query)) {
+            st.setString(1, "I");          // Asigna el estado ('A' o 'I')
+            st.setString(2, usuario);
+            // Asigna el ID del área para actualizar
+            st.executeUpdate();     // Ejecuta la actualización
+            st.executeUpdate();
+            msg = "Datos guardados...";
+        } catch (SQLException ex) {
+            msg = "" + ex;
+            Logger.getLogger(CrudArea.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return msg;
     }
 
     @Override
     public Usuario getOne(String usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Usuario obj = null;
+        var query = "SELECT * FROM usuario WHERE username = ? AND estado = 'A'";
+        try (
+                java.sql.Connection conect = this.conexion.conectar(base); PreparedStatement st = conect.prepareStatement(query)) {
+            st.setString(1, usuario);
+            try (ResultSet rs = st.executeQuery()) {
+                if (rs.next()) {
+                    obj = new Usuario(
+                            rs.getString("username"),
+                            rs.getString("password"),
+                            rs.getString("nombre"),
+                            rs.getString("apellido"),
+                            rs.getString("correo"),
+                            rs.getInt("id_rol"),
+                            rs.getString("id_usuario_registro"),
+                            rs.getString("estado")
+                    );
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CrudArea.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return obj; 
     }
 
     @Override
@@ -209,7 +127,28 @@ public class CrudUsuario implements UsuarioDAO {
 
     @Override
     public List<Usuario> getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+              List<Usuario> datos = new ArrayList<>();
+        var query = "select * from usuario where estado='A'";
+        try (
+                Connection conect = this.conexion.conectar(base); PreparedStatement st = conect.prepareStatement(query); ResultSet rs = st.executeQuery()) {
+            while (rs.next()) {
+                var obj = new Usuario(
+                        rs.getString("username"),
+                        rs.getString("password"),
+                        rs.getString("nombre"),
+                        rs.getString("apellido"),
+                        rs.getString("correo"),
+                        rs.getInt("id_rol"),
+                        rs.getString("id_usuario_regtistro"),
+                        rs.getString("estado")
+                );
+                datos.add(obj);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CrudArea.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return datos;  
     }
 
     @Override
@@ -217,8 +156,7 @@ public class CrudUsuario implements UsuarioDAO {
         Usuario obj = null;
         var query = "SELECT * FROM usuario WHERE username = ? AND password= ? AND estado = 'A'";
         try (
-                java.sql.Connection conect = this.conexion.conectar(base); 
-                PreparedStatement st = conect.prepareStatement(query)) {
+                java.sql.Connection conect = this.conexion.conectar(base); PreparedStatement st = conect.prepareStatement(query)) {
             st.setString(1, usuario);
             st.setString(2, password);
             try (ResultSet rs = st.executeQuery()) {
@@ -230,7 +168,7 @@ public class CrudUsuario implements UsuarioDAO {
                             rs.getString("apellido"),
                             rs.getString("correo"),
                             rs.getInt("id_rol"),
-                            rs.getInt("id_usuario_registro"),
+                            rs.getString("id_usuario_registro"),
                             rs.getString("estado")
                     );
                 }
