@@ -13,7 +13,7 @@ import lombok.ToString;
 
 /**
  *
- * @author USUARIO   
+ * @author Base de datos desarrollo
  */
 @Data
 @NoArgsConstructor
