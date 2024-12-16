@@ -4,11 +4,18 @@
  */
 package views;
 
+import dao.CrudRoles;
+import domain.Roles;
+import java.util.List;
+
 /**
  *
  * @author user
  */
 public class VentanaLaura extends javax.swing.JDialog {
+
+    CrudRoles crudR;
+    List<Roles> lista = null;
 
     /**
      * Creates new form VentanaLaura
@@ -16,8 +23,21 @@ public class VentanaLaura extends javax.swing.JDialog {
     public VentanaLaura(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
+        fillRoles();
     }
 
+        private void fillRoles() {
+        crudR = new CrudRoles();
+        lista = crudR.getAll();
+        roles.removeAllItems();
+        Roles[] arreglo = lista.toArray(Roles[]::new);
+        roles.addItem("Elija una Opción...");
+        for (int i = 0; i < arreglo.length; i++) {
+            roles.addItem(arreglo[i].getNombre());
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,8 +49,6 @@ public class VentanaLaura extends javax.swing.JDialog {
 
         jFrame1 = new javax.swing.JFrame();
         jFrame2 = new javax.swing.JFrame();
-        jLabel1 = new javax.swing.JLabel();
-        idusuario = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -42,9 +60,9 @@ public class VentanaLaura extends javax.swing.JDialog {
         correo = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        idrol = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        estado = new javax.swing.JTextField();
+        roles = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -69,11 +87,6 @@ public class VentanaLaura extends javax.swing.JDialog {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        jLabel1.setFont(new java.awt.Font("Poor Richard", 1, 24)); // NOI18N
-        jLabel1.setText("ID Usuario");
-
-        idusuario.setFont(new java.awt.Font("Poor Richard", 0, 18)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Poor Richard", 1, 24)); // NOI18N
         jLabel3.setText("Password");
@@ -104,14 +117,24 @@ public class VentanaLaura extends javax.swing.JDialog {
         jLabel7.setText("Correo");
 
         jLabel2.setFont(new java.awt.Font("Poor Richard", 1, 24)); // NOI18N
-        jLabel2.setText("ID rol");
+        jLabel2.setText("Rol");
 
-        idrol.setFont(new java.awt.Font("Poor Richard", 0, 18)); // NOI18N
+        roles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        roles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rolesActionPerformed(evt);
+            }
+        });
 
-        jLabel8.setFont(new java.awt.Font("Poor Richard", 1, 24)); // NOI18N
-        jLabel8.setText("Estado");
+        jButton1.setText("jButton1");
 
-        estado.setFont(new java.awt.Font("Poor Richard", 0, 18)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton2.setText("Salir");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -121,56 +144,45 @@ public class VentanaLaura extends javax.swing.JDialog {
                 .addGap(169, 169, 169)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(71, 71, 71)
-                        .addComponent(estado))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addGap(81, 81, 81)
-                        .addComponent(idrol))
+                        .addGap(105, 105, 105)
+                        .addComponent(roles, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(186, 186, 186))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
                             .addComponent(jLabel4)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel6)
                             .addComponent(jLabel5)
-                            .addComponent(jLabel7))
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel6))
+                        .addGap(37, 37, 37)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(correo)
-                            .addComponent(usuario)
-                            .addComponent(idusuario)
                             .addComponent(password)
                             .addComponent(nombre)
-                            .addComponent(apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(318, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(apellido))
+                        .addGap(186, 186, 186))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(152, 152, 152))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(71, 71, 71)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(idusuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(107, 107, 107)
                         .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -178,15 +190,23 @@ public class VentanaLaura extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(correo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(idrol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(roles, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addComponent(estado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(103, 103, 103)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8)))
-                .addContainerGap(65, Short.MAX_VALUE))
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel2)))
+                .addGap(18, 31, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE))
+                .addGap(32, 32, 32))
         );
 
         pack();
@@ -195,6 +215,25 @@ public class VentanaLaura extends javax.swing.JDialog {
     private void usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_usuarioActionPerformed
+
+    private void rolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rolesActionPerformed
+        // TODO add your handling code here
+         int selectedIndex = roles.getSelectedIndex()-1;
+                String selectedItem = (String) roles.getSelectedItem();
+
+                // Mostrar la posición y el valor seleccionado
+                System.out.println("Posición seleccionada: " + selectedIndex);
+                System.out.println("Elemento seleccionado: " + selectedItem);
+
+                // Validar si el usuario seleccionó algo distinto a "Elija una opción"
+                if (selectedIndex == 0) {
+                    System.out.println("Por favor, elija una opción válida.");
+                }
+    }//GEN-LAST:event_rolesActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -241,21 +280,19 @@ public class VentanaLaura extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField apellido;
     private javax.swing.JTextField correo;
-    private javax.swing.JTextField estado;
-    private javax.swing.JTextField idrol;
-    private javax.swing.JTextField idusuario;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JFrame jFrame2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField nombre;
     private javax.swing.JPasswordField password;
+    private javax.swing.JComboBox<String> roles;
     private javax.swing.JTextField usuario;
     // End of variables declaration//GEN-END:variables
 }

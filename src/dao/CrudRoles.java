@@ -24,20 +24,25 @@ import java.util.logging.Logger;
  */
 public class CrudRoles implements RolesDAO {
 
-    private String base = "desarrollo";
+   private String base = "prueba1";
     private Conexion conexion;
+
+    public CrudRoles() {
+         conexion = new Conexion();
+    }
+  
 
     @Override
     public List<Roles> getAll() {
-        List<Roles> datos = new ArrayList<>();
+      List<Roles> datos = new ArrayList<>();
         var query = "select * from roles where estado='A'";
         try (
                 Connection conect = this.conexion.conectar(base); PreparedStatement st = conect.prepareStatement(query); ResultSet rs = st.executeQuery()) {
 
-            while (rs.next()) {
-                Roles area = new Roles(rs.getInt("id_rol"), rs.getString("nombre"),
-                        rs.getInt("id_usuario"), rs.getString("estado"));
-                datos.add(area);
+            while (rs.next()) { 
+                Roles rol = new Roles(rs.getInt("id_rol"), rs.getString("nombre"),
+                        rs.getString("id_usuario"), rs.getString("estado"));
+                datos.add(rol);
             }
         } catch (SQLException ex) {
             Logger.getLogger(CrudRoles.class.getName()).log(Level.SEVERE, null, ex);
@@ -53,7 +58,7 @@ public class CrudRoles implements RolesDAO {
         try (
                 Connection conect = this.conexion.conectar(base); PreparedStatement st = conect.prepareStatement(query)) {
             st.setString(1, obj.getNombre());     // Asigna el nombre del rol
-            st.setInt(2, obj.getId_usuario());         // Asigna el ID del usuario
+            st.setString(2, obj.getId_usuario());         // Asigna el ID del usuario
             st.setString(3, obj.getEstado());         // Asigna el estado ('A' o 'I')
             int rowsAffected = st.executeUpdate();     // Ejecuta la inserción
             return rowsAffected > 0;                   // Retorna true si se insertaron filas
@@ -112,7 +117,7 @@ public class CrudRoles implements RolesDAO {
                     roles = new Roles(
                             rs.getInt("id_rol"),
                             rs.getString("nombre"),
-                            rs.getInt("id_usuario"),
+                            rs.getString("id_usuario"),
                             rs.getString("estado")
                     );
                 }
