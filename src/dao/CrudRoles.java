@@ -24,7 +24,7 @@ import java.util.logging.Logger;
  */
 public class CrudRoles implements RolesDAO {
 
-   private String base = "prueba1";
+   private String base = "fichas_medicas_desarrollo";
     private Conexion conexion;
 
     public CrudRoles() {

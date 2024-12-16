@@ -22,7 +22,7 @@ import java.util.ArrayList;
  */
 public class CrudUsuario implements UsuarioDAO {
 
-    private String base = "practica_capacitacion";
+   private String base = "fichas_medicas_desarrollo";
     private Conexion conexion;
 
     public CrudUsuario() {
@@ -47,7 +47,7 @@ public class CrudUsuario implements UsuarioDAO {
             st.executeUpdate();
             msg = "Datos guardados...";
         } catch (SQLException ex) {
-            msg = "" + ex;
+            msg = "Datos no guardados\n" + ex;
             // Logger.getLogger(CrudArea.class.getName()).log(Level.SEVERE, null, ex);
         }
         return msg;
