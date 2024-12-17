@@ -97,7 +97,6 @@ public class VentanaLaura extends javax.swing.JDialog {
         jLabel3.setText("Password");
 
         jLabel4.setFont(new java.awt.Font("Poor Richard", 1, 24)); // NOI18N
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Documents\\NetBeansProjects\\joseluistapia16-CapacitacionEquipo\\src\\img\\integrantes.png")); // NOI18N
         jLabel4.setText("Usuario");
 
         jLabel5.setFont(new java.awt.Font("Poor Richard", 1, 24)); // NOI18N
@@ -133,7 +132,7 @@ public class VentanaLaura extends javax.swing.JDialog {
         });
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/imprimir.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\joseluistapia16-CapacitacionEquipo\\src\\img\\imprimir.png")); // NOI18N
         jButton1.setText("Grabar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,7 +141,7 @@ public class VentanaLaura extends javax.swing.JDialog {
         });
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/salida.png"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\NetBeansProjects\\joseluistapia16-CapacitacionEquipo\\src\\img\\salida.png")); // NOI18N
         jButton2.setText("Salir");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -191,7 +190,7 @@ public class VentanaLaura extends javax.swing.JDialog {
                         .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(password, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
+                            .addComponent(password))
                         .addGap(9, 9, 9)
                         .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
