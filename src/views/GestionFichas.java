@@ -175,6 +175,7 @@ public class GestionFichas extends javax.swing.JDialog {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 //        new Registro(new JFrame(), true).setVisible(true);
+
     }//GEN-LAST:event_jButton2ActionPerformed
     private Usuario getObject(String usuario, List<Usuario> lista) {
         Usuario obj = null;
