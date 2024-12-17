@@ -45,8 +45,6 @@ public class Menu extends javax.swing.JDialog {
     }
 
     private void cargarImagen() {
-        JFileChooser dlg = new JFileChooser();
-        dlg.setFileFilter(filter);
         String file = rutaimagen;
         tapiz.setIcon(new ImageIcon(file));
         ImageIcon icon = new ImageIcon(file);
@@ -75,6 +73,8 @@ public class Menu extends javax.swing.JDialog {
         jMenuItem7 = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
 
@@ -125,6 +125,19 @@ public class Menu extends javax.swing.JDialog {
         jMenu1.add(jMenuItem2);
 
         menu1.add(jMenu1);
+
+        jMenu5.setText("Parte Diario");
+        jMenu5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+
+        jMenuItem3.setText("Mantenimiento");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem3);
+
+        menu1.add(jMenu5);
 
         jMenu2.setText("About");
         jMenu2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -181,6 +194,10 @@ public class Menu extends javax.swing.JDialog {
         gficha.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+      new GestionParteDiario(new JFrame(),true).setVisible(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -229,8 +246,10 @@ public class Menu extends javax.swing.JDialog {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JPopupMenu.Separator jSeparator1;
