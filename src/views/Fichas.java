@@ -140,7 +140,7 @@ public class Fichas extends javax.swing.JDialog {
                                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 193, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel8)
@@ -186,7 +186,7 @@ public class Fichas extends javax.swing.JDialog {
                     .addComponent(jLabel8)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addContainerGap(155, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("DATOS", jPanel1);
@@ -258,7 +258,7 @@ public class Fichas extends javax.swing.JDialog {
                                         .addGap(123, 123, 123)
                                         .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -289,30 +289,37 @@ public class Fichas extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextField10, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                     .addComponent(jTextField11))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("ANTECEDENTES", jPanel2);
 
-        jLabel18.setFont(new java.awt.Font("Sans Serif Collection", 0, 14)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jLabel18.setIcon(new javax.swing.ImageIcon("D:\\FichaMedica\\img\\presion-arterial.png")); // NOI18N
         jLabel18.setText("PRESION ARTERIAL");
 
-        jLabel19.setFont(new java.awt.Font("Sans Serif Collection", 0, 14)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jLabel19.setIcon(new javax.swing.ImageIcon("D:\\FichaMedica\\img\\ritmo-cardiaco.png")); // NOI18N
         jLabel19.setText("FRECUANCIA CARDIACA");
 
-        jLabel20.setFont(new java.awt.Font("Sans Serif Collection", 0, 14)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jLabel20.setIcon(new javax.swing.ImageIcon("D:\\FichaMedica\\img\\oximetro.png")); // NOI18N
         jLabel20.setText("SATURACION ");
 
-        jLabel21.setFont(new java.awt.Font("Sans Serif Collection", 0, 14)); // NOI18N
+        jLabel21.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jLabel21.setIcon(new javax.swing.ImageIcon("D:\\FichaMedica\\img\\altura.png")); // NOI18N
         jLabel21.setText("ESTATURA (CM)");
 
-        jLabel22.setFont(new java.awt.Font("Sans Serif Collection", 0, 14)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jLabel22.setIcon(new javax.swing.ImageIcon("D:\\FichaMedica\\img\\peso-saludable.png")); // NOI18N
         jLabel22.setText("PESO (KG)");
 
-        jLabel23.setFont(new java.awt.Font("Sans Serif Collection", 0, 14)); // NOI18N
+        jLabel23.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jLabel23.setIcon(new javax.swing.ImageIcon("D:\\FichaMedica\\img\\temperatura-alta.png")); // NOI18N
         jLabel23.setText("TEMPERATURA");
 
-        jLabel24.setFont(new java.awt.Font("Sans Serif Collection", 0, 14)); // NOI18N
+        jLabel24.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jLabel24.setIcon(new javax.swing.ImageIcon("D:\\FichaMedica\\img\\imc (1).png")); // NOI18N
         jLabel24.setText("IMC");
 
         jTextField12.setText("jTextField12");
@@ -330,6 +337,7 @@ public class Fichas extends javax.swing.JDialog {
         jTextField18.setText("jTextField18");
 
         jLabel25.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        jLabel25.setIcon(new javax.swing.ImageIcon("D:\\FichaMedica\\img\\examenes-de-salud.png")); // NOI18N
         jLabel25.setText("EXAMENES");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -362,7 +370,7 @@ public class Fichas extends javax.swing.JDialog {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jTextField17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
                         .addComponent(jTextField16, javax.swing.GroupLayout.Alignment.TRAILING)))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel24)
@@ -399,7 +407,7 @@ public class Fichas extends javax.swing.JDialog {
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel23)
                         .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel24))
@@ -414,7 +422,7 @@ public class Fichas extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 752, Short.MAX_VALUE)
+                .addComponent(jTabbedPane4)
                 .addContainerGap())
         );
         layout.setVerticalGroup(

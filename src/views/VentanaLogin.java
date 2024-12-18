@@ -42,11 +42,9 @@ public class VentanaLogin extends javax.swing.JDialog {
         jButton2 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Fichas_Medicas\\img\\circulo-de-usuario (1).png")); // NOI18N
         jLabel1.setText("Usuario");
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Fichas_Medicas\\img\\candadoo.png")); // NOI18N
         jLabel3.setText("Password");
 
         jToggleButton1.setText("Registro");
@@ -59,16 +57,16 @@ public class VentanaLogin extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Fichas_Medicas\\img\\circulo-de-usuario (1).png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\FichaMedica\\img\\usuario.png")); // NOI18N
         jLabel2.setText("Usuario");
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Fichas_Medicas\\img\\candadoo.png")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon("D:\\FichaMedica\\img\\candado.png")); // NOI18N
         jLabel4.setText("Password");
 
         jButton1.setBackground(new java.awt.Color(204, 204, 204));
         jButton1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Fichas_Medicas\\img\\caja (1).png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("D:\\FichaMedica\\img\\aceptar.png")); // NOI18N
         jButton1.setText("Aceptar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,7 +76,7 @@ public class VentanaLogin extends javax.swing.JDialog {
 
         jButton2.setBackground(new java.awt.Color(204, 204, 204));
         jButton2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Fichas_Medicas\\img\\salidaaa.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon("D:\\FichaMedica\\img\\cancelar.png")); // NOI18N
         jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,7 +123,7 @@ public class VentanaLogin extends javax.swing.JDialog {
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
